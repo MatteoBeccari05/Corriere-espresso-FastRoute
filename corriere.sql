@@ -23,10 +23,12 @@ CREATE TABLE corriere.clienti (
     data_creazione DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+
+
+
 -- Tabella per i plichi
 CREATE TABLE corriere.plichi (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    codice INT UNIQUE NOT NULL,
     id_mittente INT NOT NULL, -- Riferimento al cliente mittente
     id_destinatario INT NOT NULL, -- Riferimento al cliente destinatario
     stato ENUM('consegnato', 'spedito', 'in_transito') DEFAULT 'in_transito',
@@ -47,7 +49,6 @@ CREATE TABLE corriere.spedizioni (
     FOREIGN KEY (id_pacco) REFERENCES plichi(id),
     FOREIGN KEY (id_personale) REFERENCES personale(id)
 );
-
 
 
 
